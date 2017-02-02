@@ -1,0 +1,19 @@
+language: ruby
+cache: bundler
+bundler_args: --without development
+before_script:
+  - sh -e /etc/init.d/xvfb start
+  - bin/rake refinery:testing:dummy_app
+  - export DISPLAY=:99.0
+env:
+  - DB=postgresql
+  - DB=mysql
+notifications:
+  webhooks:
+    - https://webhooks.gitter.im/e/b5d48907cdc89864b874
+rvm:
+  - 2.3.1
+  - 2.2
+  - 2.1
+  - 2.0.0
+sudo: false

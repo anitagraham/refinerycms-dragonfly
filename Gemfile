@@ -2,18 +2,28 @@ source "https://rubygems.org"
 
 gemspec
 
-git "https://github.com/refinery/refinerycms", branch: "master" do
-  gem 'refinerycms'
+# git "https://github.com/refinery/refinerycms", branch: "master" do
+#   gem 'refinerycms'
+#
+#   group :development, :test do
+#     gem 'refinerycms-testing'
+#
+#   end
+# end
 
-  group :development, :test do
-    gem 'refinerycms-testing'
-  end
+gem 'refinerycms', path: '/Applications/MAMP/www/refinerycms'
+gem 'dragonfly'
+
+group :development, :test do
+  gem 'refinerycms-testing', path: '/Applications/MAMP/www/refinerycms'
+  gem 'rack-cache', :require => 'rack/cache'
 end
 
 group :test do
   gem 'pry'
   gem 'launchy'
   gem 'selenium-webdriver', '~> 2.43'
+  gem 'awesome_print'
 end
 
 # Database Configuration
